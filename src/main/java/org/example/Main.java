@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import java.util.*;
 
 public class Main {
-    private static PaymentMethod pointsMethod = null;
+    static PaymentMethod pointsMethod = null;
 
     public static void main(String[] args) {
         if (args.length != 2) {
@@ -135,6 +135,7 @@ public class Main {
         return options;
     }
 
+    // Opcja 1
     private static PaymentOption createBestPromotionOption(Order order, PaymentMethod method, Map<String, BigDecimal> methodsRemainingAmount) {
         BigDecimal orderCost = new BigDecimal(String.valueOf(order.getValue()));
         BigDecimal discountRate = new BigDecimal(method.getDiscount()).divide(new BigDecimal("100"));
@@ -152,6 +153,7 @@ public class Main {
         return null;
     }
 
+    // Opcja 2
     private static PaymentOption createPointsOnlyOption(Order order, Map<String, BigDecimal> methodsRemainingAmount) {
         BigDecimal orderCost = new BigDecimal(String.valueOf(order.getValue()));
         BigDecimal discountRate = new BigDecimal(pointsMethod.getDiscount()).divide(new BigDecimal("100"));
@@ -170,6 +172,7 @@ public class Main {
         return null;
     }
 
+    // Opcja 3
     private static PaymentOption createPartlyPointsOption(Order order, PaymentMethod method, BigDecimal minAmount, Map<String, BigDecimal> methodsRemainingAmount) {
         BigDecimal orderCost = new BigDecimal(String.valueOf(order.getValue()));
         BigDecimal pointsLimit = methodsRemainingAmount.get("PUNKTY");
@@ -205,6 +208,7 @@ public class Main {
         return null;
     }
 
+    // Opcja 4
     private static PaymentOption createWithoutPromotionOption(Order order, PaymentMethod method, Map<String, BigDecimal> methodsRemainingAmount) {
         BigDecimal orderCost = new BigDecimal(String.valueOf(order.getValue()));
 

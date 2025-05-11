@@ -66,7 +66,7 @@ public class Main {
             return o2.getPointsUsed().compareTo(o1.getPointsUsed());
         });
 
-        if(!options.isEmpty()) {
+        if (!options.isEmpty()) {
             useBestOptionForOrder(options.getFirst(), methodsSpentAmount, methodsRemainingAmount);
         } else {
             System.err.println("No payment options found for order " + order.getId());
@@ -74,7 +74,7 @@ public class Main {
     }
 
     private static void useBestOptionForOrder(PaymentOption paymentOption, Map<String, BigDecimal> methodsSpentAmount, Map<String, BigDecimal> methodsRemainingAmount) {
-        for(Map.Entry<String, BigDecimal> entry : paymentOption.getPayments().entrySet()) {
+        for (Map.Entry<String, BigDecimal> entry : paymentOption.getPayments().entrySet()) {
             String methodId = entry.getKey();
             BigDecimal value = entry.getValue();
 

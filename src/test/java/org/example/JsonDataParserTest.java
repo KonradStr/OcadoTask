@@ -88,9 +88,5 @@ class JsonDataParserTest {
     @Test
     void parsePaymentMethods_fileNotFound_throwsIOException() {
         assertThrows(IOException.class, () -> JsonDataParser.parseOrders("test.json"));
-
     }
-
-
-
 }

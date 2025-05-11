@@ -1,6 +1,5 @@
 package org.example;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -97,13 +96,10 @@ class MainTest {
 
         Map<String, BigDecimal> result = Main.optimizePayments(orders, paymentMethods);
 
-        System.out.println(result);
         assertFalse(result.isEmpty());
         assertTrue(result.containsKey("Test"));
         assertEquals(new BigDecimal("100.00"), result.get("Test"));
     }
-
-
 
     @Test
     void optimizePayments_pointsAndCardEqualDiscounts_preferPoints() {

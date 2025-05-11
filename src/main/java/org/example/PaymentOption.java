@@ -15,7 +15,7 @@ public class PaymentOption {
     private BigDecimal discount;
     private BigDecimal pointsUsed;
 
-    public PaymentOption(){
+    public PaymentOption() {
         this.payments = new HashMap<>();
         this.discount = BigDecimal.ZERO;
         this.pointsUsed = BigDecimal.ZERO;
